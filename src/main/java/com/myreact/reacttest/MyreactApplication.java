@@ -8,6 +8,8 @@ public class MyreactApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MyreactApplication.class, args);
+
+        System.out.println("!!! Запустил модуль !!!");
     }
 
 }
