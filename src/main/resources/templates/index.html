@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add CSS and JS to Thymeleaf</title>
+    <link rel="stylesheet" th:href="@{/css/css.css}"/>
+    <script th:src="@{/js/js.js}" type="text/javascript"></script>
+</head>
+
+<body>
+<div>Тест проверка _5555</div>
+
+<div th:if="${customers}">
+    <p th:text="${customers}"></p>
+</div>
+
+<br>
+
+<button id="objtest">Ajax Object</button>
+
+<br>
+
+<div th:if="${not #lists.isEmpty(customers)}">
+    <h3>Таблица Customers</h3>
+    <table cellspacing="0" border="1" cellpadding="0" width="1000">
+        <tr>
+            <th>№</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>e-mail</th>
+        </tr>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.getId}" style="text-align: right">#</td>
+            <td th:text="${customer.getFirstName}" style="text-align: center">#</td>
+            <td th:text="${customer.getLastName}" style="text-align: center">#</td>
+            <td th:text="${customer.getEmail}" style="text-align: center">#</td>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <p>Проба GET</p>
+    <p>Щёлкните по документу для запуска обработчика. GET</p>
+    <button type="submit" id="btnget">Жми меня GET</button>
+</div>
+
+<div class="container">
+    <p>Проба POST</p>
+    <p>Щёлкните по документу для запуска обработчика. POST</p>
+    <button type="submit" id="btnpost">Жми меня POST</button>
+</div>
+
+<div class="container">
+    <p>Проба JSON</p>
+    <p>Щёлкните по документу для запуска обработчика. JSON</p>
+    <button type="submit" id="btnjson">Жми меня JSON</button>
+</div>
+
+</body>
+</html>
